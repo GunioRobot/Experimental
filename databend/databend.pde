@@ -4,12 +4,28 @@ int cnt = 0;
 
 void setup() {
   size(400,400);
+
+
   background(0);
   frame.setResizable(true);
   //  byte[] data=loadBytes(loadPath);
   //  img = loadImage(loadPath);
   //  saveBytes("bentoutput.jpg",data);
   //  size(img.width,img.height,P2D);
+
+  // GRAPHICS
+  for (int i=0; i<400; i= i+2) {
+    stroke(35,44,33);
+    line(0,i,400,i);
+  }
+
+  // INSTRUCTIONS
+  PFont font;
+  font = loadFont("AndaleMono-12.vlw"); 
+  textFont(font); 
+  String s = "The quick brown fox jumped over the lazy dog.";
+  fill(255, 181, 0);
+  text(s, 15, 20, 70, 70);
 }
 
 void draw() {
