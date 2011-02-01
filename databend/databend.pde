@@ -14,18 +14,23 @@ void setup() {
   //  size(img.width,img.height,P2D);
 
   // GRAPHICS
-  for (int i=0; i<400; i= i+2) {
-    stroke(35,44,33);
-    line(0,i,400,i);
-  }
+    stroke(255);
+    fill(0);
+    rect(10, 10, 380, 380);
+    line(20,40,380,40);
+    line(64,50,64,380);
 
   // INSTRUCTIONS
   PFont font;
   font = loadFont("AndaleMono-12.vlw"); 
   textFont(font); 
-  String s = "The quick brown fox jumped over the lazy dog.";
-  fill(255, 181, 0);
-  text(s, 15, 20, 70, 70);
+  String title = "Databend Editor V 0.0";
+  String keys = "    o \nspace \n    1";
+  String actions = "..........  open file \n..........  bend once \n..........  bend ten times in a row";
+  fill(255);
+  text(title, 21, 21, 300, 12);
+  text(keys, 20, 60,50, 300);
+  text(actions, 74, 60,300, 300);
 }
 
 void draw() {
