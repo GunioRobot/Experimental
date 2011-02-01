@@ -3,33 +3,21 @@ PImage img;  // Declare variable "a" of type PImage
 int cnt = 0;
 
 void setup() {
-
-  // select input file
-  String loadPath = selectInput();  // Opens file chooser
-  if (loadPath == null) {
-    // If a file was not selected
-    img = loadImage("picture.jpg");
-    size(img.width,img.height,P2D);
-    println("No file was selected...");
-  } 
-  else {
-    // If a file was selected, print path to file
-    println(loadPath);
-    background(0);
-    byte[] data=loadBytes(loadPath);
-    img = loadImage(loadPath);
-    saveBytes("bentoutput.jpg",data);
-    size(img.width,img.height,P2D);
-    //size(400,400);
-  }
+  size(400,400);
+  background(0);
+  //  byte[] data=loadBytes(loadPath);
+  //  img = loadImage(loadPath);
+  //  saveBytes("bentoutput.jpg",data);
+  //  size(img.width,img.height,P2D);
 }
 
 void draw() {
-  image(img, 0, 0);
+  //image(img, 0, 0);
 }
 
 void keyPressed() {
 
+  // bend file once
   if (key == ' ') {
     byte[] data=loadBytes("bentoutput.jpg");
 
@@ -54,6 +42,34 @@ void keyPressed() {
       img = loadImage("bentoutput.jpg");
       image(img, 0, 0);
     }
+  }
+
+  // choose file from prompt
+  if (key == 'o') {
+    chooseImage();
+  }
+}
+
+void chooseImage() {
+  // select input file
+  String loadPath = selectInput();  // Opens file chooser
+
+  if (loadPath == null) {
+
+    // If a file was not selected
+    img = loadImage("picture.jpg");
+    size(img.width,img.height,P2D);
+    println("No file was selected...");
+  } 
+
+  else {
+
+    // If a file was selected, use path to file
+    println(loadPath);
+    byte[] data=loadBytes(loadPath);
+    img = loadImage(loadPath);
+    saveBytes("bentoutput.jpg",data);
+    //size(img.width,img.height,P2D);
   }
 }
 
