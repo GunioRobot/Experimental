@@ -5,6 +5,7 @@ int cnt = 0;
 void setup() {
   size(400,400);
   background(0);
+  frame.setResizable(true);
   //  byte[] data=loadBytes(loadPath);
   //  img = loadImage(loadPath);
   //  saveBytes("bentoutput.jpg",data);
@@ -12,7 +13,9 @@ void setup() {
 }
 
 void draw() {
-  //image(img, 0, 0);
+  if (img != null) {
+    image(img, 0, 0);
+  }
 }
 
 void keyPressed() {
@@ -70,6 +73,8 @@ void chooseImage() {
     img = loadImage(loadPath);
     saveBytes("bentoutput.jpg",data);
     //size(img.width,img.height,P2D);
+    frame.setSize(img.width,img.height);
+    image(img, 0, 0);
   }
 }
 
