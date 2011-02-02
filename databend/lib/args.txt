@@ -1,3 +1,0 @@
-
-databend
-databend.jar,core.jar
