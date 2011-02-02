@@ -10,7 +10,7 @@ void setup() {
   frame.setResizable(true);
   //  byte[] data=loadBytes(loadPath);
   //  img = loadImage(loadPath);
-  //  saveBytes("bentoutput.jpg",data);
+  //  saveBytes("data/bentoutput.jpg",data);
   //  size(img.width,img.height,P2D);
 
   // GRAPHICS
@@ -43,13 +43,13 @@ void keyPressed() {
 
   // bend file once
   if (key == ' ') {
-    byte[] data=loadBytes("bentoutput.jpg");
+    byte[] data=loadBytes("data/bentoutput.jpg");
 
     int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
     data[loc]=(byte)random(255);
 
     saveBytes("bentoutput.jpg",data); 
-    img = loadImage("bentoutput.jpg");
+    img = loadImage("data/bentoutput.jpg");
     image(img, 0, 0);
   }
 
@@ -57,13 +57,13 @@ void keyPressed() {
   if (key == '1') {
     for (int i=0; i<10; i++)
     {
-      byte[] data=loadBytes("bentoutput.jpg");
+      byte[] data=loadBytes("data/bentoutput.jpg");
 
       int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
       data[loc]=(byte)random(255);
 
-      saveBytes("bentoutput.jpg",data); 
-      img = loadImage("bentoutput.jpg");
+      saveBytes("data/bentoutput.jpg",data); 
+      img = loadImage("data/bentoutput.jpg");
       image(img, 0, 0);
     }
   }
@@ -92,7 +92,7 @@ void chooseImage() {
     println(loadPath);
     byte[] data=loadBytes(loadPath);
     img = loadImage(loadPath);
-    saveBytes("bentoutput.jpg",data);
+    saveBytes("data/bentoutput.jpg",data);
     //size(img.width,img.height,P2D);
     frame.setSize(img.width,img.height);
     image(img, 0, 0);
