@@ -18,7 +18,6 @@ void setup() {
     fill(0);
     rect(10, 10, 380, 380);
     line(20,40,380,40);
-    line(64,50,64,380);
 
   // INSTRUCTIONS
   PFont font;
@@ -26,11 +25,11 @@ void setup() {
   textFont(font); 
   String title = "Databend Editor V 0.0";
   String keys = "    o \nspace \n    1";
-  String actions = "..........  open file \n..........  bend once \n..........  bend ten times in a row";
+  String actions = "..........   open file \n..........   bend once \n..........   bend ten times in a row";
   fill(255);
   text(title, 21, 21, 300, 12);
   text(keys, 20, 60,50, 300);
-  text(actions, 74, 60,300, 300);
+  text(actions, 70, 60,300, 300);
 }
 
 void draw() {
