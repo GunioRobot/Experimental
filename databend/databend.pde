@@ -40,6 +40,8 @@ void draw() {
 
 void keyPressed() {
 
+  keyWindowActions();
+  
   // bend file once
   if (key == ' ') {
     byte[] data=loadBytes("data/bentoutput.jpg");

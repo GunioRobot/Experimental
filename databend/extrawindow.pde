@@ -5,16 +5,8 @@
 
 
 ExtraWindow ew1;
-void setup() {
-  size(400,400);
-}
 
-void draw() {
-  //ew1.stroke(255,40);
-  //ew1.line(100,100,mouseX,mouseY);
-}
-
-void keyPressed() {
+void keyWindowActions() {
   println(key);
   switch(key) {
     case('1'):
@@ -23,7 +15,7 @@ void keyPressed() {
     case('2'):
     ew1.setUndecorated(false);
     break;
-    case('o'):
+    case('b'):
     if (ew1 == null) {
       ew1 = new ExtraWindow(this,"window",100,100,200,200);
       ew1.smooth();
