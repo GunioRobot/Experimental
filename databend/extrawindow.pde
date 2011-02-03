@@ -7,27 +7,27 @@
 ExtraWindow ew1;
 
 void keyWindowActions() {
-  println(key);
-  switch(key) {
-    case('1'):
-    ew1.setUndecorated(true);
-    break;
-    case('2'):
-    ew1.setUndecorated(false);
-    break;
-    case('b'):
-    if (ew1 == null) {
-      ew1 = new ExtraWindow(this,"window",100,100,200,200);
-      ew1.smooth();
-    }
-    break;
-  }
+//  println(key);
+//  switch(key) {
+//    case('d'):
+//    ew1.setUndecorated(true);
+//    break;
+//    case('2'):
+//    ew1.setUndecorated(false);
+//    break;
+////    case('b'):
+////    if (ew1 == null) {
+////      ew1 = new ExtraWindow(this,"window",100,100,200,200);
+////      ew1.smooth();
+////    }
+////    break;
+//  }
 }
 
 void mousePressed() {
-  if (ew1 != null) {
-    ew1.background(0);
-  }
+//  if (ew1 != null) {
+//    ew1.background(0);
+//  }
 }
 
 

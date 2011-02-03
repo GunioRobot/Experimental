@@ -14,10 +14,10 @@ void setup() {
   //  size(img.width,img.height,P2D);
 
   // GRAPHICS
-    stroke(255);
-    fill(0);
-    rect(10, 10, 380, 380);
-    line(20,40,380,40);
+  stroke(255);
+  fill(0);
+  rect(10, 10, 380, 380);
+  line(20,40,380,40);
 
   // INSTRUCTIONS
   PFont font;
@@ -33,15 +33,15 @@ void setup() {
 }
 
 void draw() {
-  if (img != null) {
-    image(img, 0, 0);
+  if (img != null && ew1 != null) {
+    ew1.image(img, 0, 0);
   }
 }
 
 void keyPressed() {
 
   keyWindowActions();
-  
+
   // bend file once
   if (key == ' ') {
     byte[] data=loadBytes("data/bentoutput.jpg");
@@ -49,9 +49,9 @@ void keyPressed() {
     int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
     data[loc]=(byte)random(255);
 
-    saveBytes("bentoutput.jpg",data); 
+    saveBytes("data/bentoutput.jpg",data); 
     img = loadImage("data/bentoutput.jpg");
-    image(img, 0, 0);
+    ew1.image(img, 0, 0);
   }
 
   // 10 mods in a row
@@ -65,7 +65,7 @@ void keyPressed() {
 
       saveBytes("data/bentoutput.jpg",data); 
       img = loadImage("data/bentoutput.jpg");
-      image(img, 0, 0);
+      ew1.image(img, 0, 0);
     }
   }
 
@@ -95,8 +95,15 @@ void chooseImage() {
     img = loadImage(loadPath);
     saveBytes("data/bentoutput.jpg",data);
     //size(img.width,img.height,P2D);
-    frame.setSize(img.width,img.height);
-    image(img, 0, 0);
+    if (ew1 == null) {
+      ew1 = new ExtraWindow(this,"window",100,100,img.width,img.height);
+    }
+    //      ew1.smooth();
+
+    //ew1.frame.setSize(img.width,img.height);
+    if (ew1 != null) {
+      ew1.image(img, 0, 0);
+    }
   }
 }
 
