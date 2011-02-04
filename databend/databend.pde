@@ -1,3 +1,4 @@
+String DEST_FILE = "data/bentoutput.jpg"; // Global
 PImage img;  // Declare variable "a" of type PImage
 
 int cnt = 0;
@@ -10,7 +11,7 @@ void setup() {
   frame.setResizable(true);
   //  byte[] data=loadBytes(loadPath);
   //  img = loadImage(loadPath);
-  //  saveBytes("data/bentoutput.jpg",data);
+  //  saveBytes(DEST_FILE,data);
   //  size(img.width,img.height,P2D);
 
   // GRAPHICS
@@ -44,13 +45,13 @@ void keyPressed() {
 
   // bend file once
   if (key == ' ') {
-    byte[] data=loadBytes("data/bentoutput.jpg");
+    byte[] data=loadBytes(DEST_FILE);
 
     int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
     data[loc]=(byte)random(255);
 
-    saveBytes("data/bentoutput.jpg",data); 
-    img = loadImage("data/bentoutput.jpg");
+    saveBytes(DEST_FILE,data); 
+    img = loadImage(DEST_FILE);
     ew1.image(img, 0, 0);
   }
 
@@ -58,13 +59,13 @@ void keyPressed() {
   if (key == '1') {
     for (int i=0; i<10; i++)
     {
-      byte[] data=loadBytes("data/bentoutput.jpg");
+      byte[] data=loadBytes(DEST_FILE);
 
       int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
       data[loc]=(byte)random(255);
 
-      saveBytes("data/bentoutput.jpg",data); 
-      img = loadImage("data/bentoutput.jpg");
+      saveBytes(DEST_FILE,data); 
+      img = loadImage(DEST_FILE);
       ew1.image(img, 0, 0);
     }
   }
@@ -93,7 +94,7 @@ void chooseImage() {
     println(loadPath);
     byte[] data=loadBytes(loadPath);
     img = loadImage(loadPath);
-    saveBytes("data/bentoutput.jpg",data);
+    saveBytes(DEST_FILE,data);
     //size(img.width,img.height,P2D);
     if (ew1 == null) {
       ew1 = new ExtraWindow(this,"window",100,100,img.width,img.height);
@@ -106,4 +107,15 @@ void chooseImage() {
     }
   }
 }
+
+//// WINDOZ SAVE BUG
+//String DEST_FILE = "numbers.dat"; // Global
+//  
+//// Then...
+//java.io.File dataFile = sketchFile(DEST_FILE);
+//if (dataFile.exists())
+//{
+//  dataFile.delete(); // Returns false if it cannot do it
+//}
+//saveBytes(DEST_FILE, nums);
 
