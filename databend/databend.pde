@@ -2,6 +2,7 @@ String DEST_FILE = "data/bentoutput.jpg"; // Global
 PImage img;  // Declare variable "a" of type PImage
 byte[] data;
 int cnt = 0;
+int count = 1;
 
 void setup() {
   size(400,400);
@@ -46,9 +47,16 @@ void keyPressed() {
   // bend file once
   if (key == 'b') {
     data=loadBytes(DEST_FILE);
+    
+    count ++;
+    println (count);
 
-    int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
-    data[loc]=(byte)random(255);
+    //int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
+    //data[loc]=(byte)random(255);
+    
+    //int loc=(int)data.length/2;
+    //data[loc]=(byte)data[1000];
+    
 
     saveBytes(DEST_FILE,data); 
     img = loadImage(DEST_FILE);
