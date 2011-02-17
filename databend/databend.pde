@@ -25,8 +25,8 @@ void setup() {
   font = loadFont("AndaleMono-12.vlw"); 
   textFont(font); 
   String title = "Databend Editor V 0.0";
-  String keys = "    o \nspace \n    1";
-  String actions = "..........   open file \n..........   bend once \n..........   bend ten times in a row";
+  String keys = "    l \nspace \n    1";
+  String actions = "..........   load file \n..........   bend once \n..........   bend ten times in a row";
   fill(255);
   text(title, 21, 21, 300, 12);
   text(keys, 20, 60,50, 300);
@@ -71,8 +71,13 @@ void keyPressed() {
   }
 
   // choose file from prompt
-  if (key == 'o') {
+  if (key == 'l') {
     chooseImage();
+  }
+
+  // save prompt
+  if (key == 's') {
+    saveImage();
   }
 }
 
@@ -83,8 +88,8 @@ void chooseImage() {
   if (loadPath == null) {
 
     // If a file was not selected
-    img = loadImage("picture.jpg");
-    size(img.width,img.height,P2D);
+    //img = loadImage("picture.jpg");
+    //size(img.width,img.height,P2D);
     println("No file was selected...");
   } 
 
@@ -105,6 +110,24 @@ void chooseImage() {
     if (ew1 != null) {
       ew1.image(img, 0, 0);
     }
+  }
+}
+
+
+
+void saveImage() {
+
+
+
+
+  String savePath = selectOutput();  // Opens file chooser
+  if (savePath == null) {
+    // If a file was not selected
+    println("No output file was selected...");
+  } 
+  else {
+    // If a file was selected, print path to folder
+    println(savePath);
   }
 }
 
