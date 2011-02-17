@@ -1,6 +1,6 @@
 String DEST_FILE = "data/bentoutput.jpg"; // Global
 PImage img;  // Declare variable "a" of type PImage
-
+byte[] data;
 int cnt = 0;
 
 void setup() {
@@ -9,7 +9,7 @@ void setup() {
 
   background(0);
   frame.setResizable(true);
-  //  byte[] data=loadBytes(loadPath);
+  //  data=loadBytes(loadPath);
   //  img = loadImage(loadPath);
   //  saveBytes(DEST_FILE,data);
   //  size(img.width,img.height,P2D);
@@ -25,8 +25,8 @@ void setup() {
   font = loadFont("AndaleMono-12.vlw"); 
   textFont(font); 
   String title = "Databend Editor V 0.0";
-  String keys = "    l \nspace \n    1";
-  String actions = "..........   load file \n..........   bend once \n..........   bend ten times in a row";
+  String keys = "    l\n    s\n    b\n    1";
+  String actions = "..........   load file \n..........   save file \n..........   bend once \n..........   bend ten times in a row";
   fill(255);
   text(title, 21, 21, 300, 12);
   text(keys, 20, 60,50, 300);
@@ -44,8 +44,8 @@ void keyPressed() {
   keyWindowActions();
 
   // bend file once
-  if (key == ' ') {
-    byte[] data=loadBytes(DEST_FILE);
+  if (key == 'b') {
+    data=loadBytes(DEST_FILE);
 
     int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
     data[loc]=(byte)random(255);
@@ -59,7 +59,7 @@ void keyPressed() {
   if (key == '1') {
     for (int i=0; i<10; i++)
     {
-      byte[] data=loadBytes(DEST_FILE);
+      data=loadBytes(DEST_FILE);
 
       int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
       data[loc]=(byte)random(255);
@@ -97,12 +97,12 @@ void chooseImage() {
 
     // If a file was selected, use path to file
     println(loadPath);
-    byte[] data=loadBytes(loadPath);
+    data=loadBytes(loadPath);
     img = loadImage(loadPath);
     saveBytes(DEST_FILE,data);
     //size(img.width,img.height,P2D);
     if (ew1 == null) {
-      ew1 = new ExtraWindow(this,"window",100,100,img.width,img.height);
+      ew1 = new ExtraWindow(this,"window",800,0,img.width,img.height);
     }
     //      ew1.smooth();
 
@@ -116,18 +116,20 @@ void chooseImage() {
 
 
 void saveImage() {
+  if (data != null && ew1 != null)
+  {
+    String savePath = selectOutput();  // Opens file chooser
+    if (savePath == null) {
+      // If a file was not selected
+      println("No output file was selected...");
+    } 
+    else {
+      // If a file was selected, print path to folder
+      println(savePath);
 
 
-
-
-  String savePath = selectOutput();  // Opens file chooser
-  if (savePath == null) {
-    // If a file was not selected
-    println("No output file was selected...");
-  } 
-  else {
-    // If a file was selected, print path to folder
-    println(savePath);
+      saveBytes(savePath,data);
+    }
   }
 }
 
