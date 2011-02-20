@@ -1,4 +1,4 @@
-String DEST_FILE = "data/bentoutput.jpg"; // Global
+String DEST_FILE = ""; // Global
 PImage img;  // Declare variable "a" of type PImage
 byte[] data;
 int cnt = 0;
@@ -46,37 +46,43 @@ void keyPressed() {
 
   // bend file once
   if (key == 'b') {
-    data=loadBytes(DEST_FILE);
-    
-    count ++;
-    println (count);
-
-    //int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
-    //data[loc]=(byte)random(255);
-    
-    //int loc=(int)data.length/2;
-    //data[loc]=(byte)data[1000];
-    
-
-    saveBytes(DEST_FILE,data); 
-    img = loadImage(DEST_FILE);
-    ew1.image(img, 0, 0);
-  }
-
-  // 10 mods in a row
-  if (key == '1') {
-    for (int i=0; i<10; i++)
+    if (data != null && ew1 != null) // check if file is loaded
     {
       data=loadBytes(DEST_FILE);
+
+      //count ++;
+      //println (count);
 
       int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
       data[loc]=(byte)random(255);
 
+      //int loc=(int)data.length/2;
+      //data[loc]=(byte)data[1000];
+
+
       saveBytes(DEST_FILE,data); 
       img = loadImage(DEST_FILE);
       ew1.image(img, 0, 0);
+      }
     }
-  }
+
+    // 10 mods in a row
+    if (key == '1') {
+      if (data != null && ew1 != null) // check if file is loaded
+      {
+        for (int i=0; i<10; i++)
+        {
+          data=loadBytes(DEST_FILE);
+
+          int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
+          data[loc]=(byte)random(255);
+
+          saveBytes(DEST_FILE,data); 
+          img = loadImage(DEST_FILE);
+          ew1.image(img, 0, 0);
+        }
+      }
+    }
 
   // choose file from prompt
   if (key == 'l') {
@@ -107,6 +113,18 @@ void chooseImage() {
     println(loadPath);
     data=loadBytes(loadPath);
     img = loadImage(loadPath);
+
+
+    if (loadPath.endsWith(".jpg") || loadPath.endsWith(".jpeg"))
+    {
+      DEST_FILE = "data/bentoutput.jpg";
+    }
+    if (loadPath.endsWith(".png"))
+    {
+      DEST_FILE = "data/bentoutput.png";
+    }
+
+
     saveBytes(DEST_FILE,data);
     //size(img.width,img.height,P2D);
     if (ew1 == null) {
