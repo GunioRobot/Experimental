@@ -126,6 +126,7 @@ void chooseImage() {
 
 
     saveBytes(DEST_FILE,data);
+    
     //size(img.width,img.height,P2D);
     if (ew1 == null) {
       ew1 = new ExtraWindow(this,"window",800,0,img.width,img.height);
@@ -135,6 +136,7 @@ void chooseImage() {
     //ew1.frame.setSize(img.width,img.height);
     if (ew1 != null) {
       ew1.image(img, 0, 0);
+      //ew1.setSize(img.width,img.height);
     }
   }
 }
