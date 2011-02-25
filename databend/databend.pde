@@ -114,6 +114,7 @@ void chooseImage() {
     data=loadBytes(loadPath);
     img = loadImage(loadPath);
 
+    println(loadPath.endsWith(""));
 
     if (loadPath.endsWith(".jpg") || loadPath.endsWith(".jpeg"))
     {
@@ -122,6 +123,10 @@ void chooseImage() {
     if (loadPath.endsWith(".png"))
     {
       DEST_FILE = "data/bentoutput.png";
+    }
+    else
+    {
+      DEST_FILE = "data/bentoutput.txt";
     }
 
 
