@@ -79,6 +79,23 @@ void setup() {
 // DRAW
 void draw() {
   lines = loadStrings("data/file.txt");
+  // FILE
+  lines = loadStrings("data/file.txt");
+  for (int i=0; i < lines.length; i++) {
+
+    lineLength = lines[i].length();
+    println(lineLength);
+
+    allChars = new char[lines[i].length()];
+
+    for (int j=0; j < lineLength; j++) {
+      allChars[j] = lines[i].charAt(j);
+      //println(allChars[j]);
+    }
+  }
+  
+  
+  
   // globalTimer
   if (globalTimer.isFinished()) {
     background(random(255));
