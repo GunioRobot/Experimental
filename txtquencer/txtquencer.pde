@@ -36,10 +36,25 @@ Timer tapTimer;
 void setup() {
   size(256,200);
 
+  // FILE
+  lines = loadStrings("data/file.txt");
+  for (int i=0; i < lines.length; i++) {
+
+    lineLength = lines[i].length();
+    println(lineLength);
+
+    allChars = new char[lines[i].length()];
+
+    for (int j=0; j < lineLength; j++) {
+      allChars[j] = lines[i].charAt(j);
+      //println(allChars[j]);
+    }
+  }
+
   // timer start
   globalTimer = new Timer(1000);
   globalTimer.start();
-  
+
   // timer start
   tapTimer = new Timer(10);
   tapTimer.start();
@@ -63,7 +78,7 @@ void setup() {
 
 // DRAW
 void draw() {
-
+  lines = loadStrings("data/file.txt");
   // globalTimer
   if (globalTimer.isFinished()) {
     background(random(255));
@@ -72,32 +87,34 @@ void draw() {
 
     globalTimer.start();
   }
-  
+
   // TAPTIMER
   if (tapTimer.isFinished()) {
-    
+
     tapTimer = new Timer(100);
 
     tapTimer.start();
-    //playSound();
-  }
-  
 
-  lines = loadStrings("data/file.txt");
+    if (allChars[0] != 0) {
+      playSound();
+    }
+  }
 } // END draw
 
 
 void keyPressed() {
- if (key == ' ') {
-  playSound();
- } 
+  if (key == ' ') {
+    //playSound();
+  }
 }
 
 
 
 // KEYPRESSED
 void playSound() {
-    //if(allChars[count] =! null) {
+  //if(allChars[count] =! null) {
+
+  if (count < lineLength) {
 
     switch (allChars[count]) {
     case 'A': 
@@ -178,29 +195,25 @@ void playSound() {
     case 'Z': 
       frequency=260;
       break;
+    case ' ': 
+      frequency=0;
+      break;
     }
 
+
     count ++;
-  } // END keypressed
+  }
+  
+  if (count >= lineLength) {
+    count = 0;
+  }
+} // END keypressed
 
 
 
 
 // SOUND GENERATING
 void audioStreamWrite(AudioStream theStream) {
-
-  // FILE
-  for (int i=0; i < lines.length; i++) {
-
-    lineLength = lines[i].length();
-
-    allChars = new char[lines[i].length()];
-
-    for (int j=0; j < lineLength; j++) {
-      allChars[j] = lines[i].charAt(j);
-      //println(allChars[j]);
-    }
-  }
 
   // next wave
   //frequency=mouseY;
