@@ -1,4 +1,4 @@
-String DEST_FILE = ""; // Global
+String DEST_FILE = "data/bentoutput"; // Global
 PImage img;  // Declare variable "a" of type PImage
 byte[] data;
 int cnt = 0;
@@ -63,26 +63,26 @@ void keyPressed() {
       saveBytes(DEST_FILE,data); 
       img = loadImage(DEST_FILE);
       ew1.image(img, 0, 0);
-      }
     }
+  }
 
-    // 10 mods in a row
-    if (key == '1') {
-      if (data != null && ew1 != null) // check if file is loaded
+  // 10 mods in a row
+  if (key == '1') {
+    if (data != null && ew1 != null) // check if file is loaded
+    {
+      for (int i=0; i<10; i++)
       {
-        for (int i=0; i<10; i++)
-        {
-          data=loadBytes(DEST_FILE);
+        data=loadBytes(DEST_FILE);
 
-          int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
-          data[loc]=(byte)random(255);
+        int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
+        data[loc]=(byte)random(255);
 
-          saveBytes(DEST_FILE,data); 
-          img = loadImage(DEST_FILE);
-          ew1.image(img, 0, 0);
-        }
+        saveBytes(DEST_FILE,data); 
+        img = loadImage(DEST_FILE);
+        ew1.image(img, 0, 0);
       }
     }
+  }
 
   // choose file from prompt
   if (key == 'l') {
@@ -114,24 +114,27 @@ void chooseImage() {
     data=loadBytes(loadPath);
     img = loadImage(loadPath);
 
-    println(loadPath.endsWith(""));
+    //println(loadPath.endsWith(""));
 
     if (loadPath.endsWith(".jpg") || loadPath.endsWith(".jpeg"))
     {
       DEST_FILE = "data/bentoutput.jpg";
+      println("JPEG");
     }
     if (loadPath.endsWith(".png"))
     {
       DEST_FILE = "data/bentoutput.png";
+      println("PNG");
     }
-    else
-    {
-      DEST_FILE = "data/bentoutput.txt";
-    }
+    //    else
+    //    {
+    //      DEST_FILE = "data/bentoutput.txt";
+    //      println("OTHER");
+    //    }
 
 
     saveBytes(DEST_FILE,data);
-    
+
     //size(img.width,img.height,P2D);
     if (ew1 == null) {
       ew1 = new ExtraWindow(this,"window",800,0,img.width,img.height);
