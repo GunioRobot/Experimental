@@ -23,8 +23,8 @@ void setup() {
 
   // INSTRUCTIONS
   PFont font;
-  font = loadFont("AndaleMono-12.vlw"); 
-  textFont(font); 
+  font = loadFont("AndaleMono-12.vlw");
+  textFont(font);
   String title = "Databend Editor V 0.0";
   String keys = "    l\n    s\n    b\n    1";
   String actions = "..........   load file \n..........   save file \n..........   bend once \n..........   bend ten times in a row";
@@ -60,7 +60,7 @@ void keyPressed() {
       //data[loc]=(byte)data[1000];
 
 
-      saveBytes(DEST_FILE,data); 
+      saveBytes(DEST_FILE,data);
       img = loadImage(DEST_FILE);
       ew1.image(img, 0, 0);
     }
@@ -77,7 +77,7 @@ void keyPressed() {
         int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
         data[loc]=(byte)random(255);
 
-        saveBytes(DEST_FILE,data); 
+        saveBytes(DEST_FILE,data);
         img = loadImage(DEST_FILE);
         ew1.image(img, 0, 0);
       }
@@ -105,7 +105,7 @@ void chooseImage() {
     //img = loadImage("picture.jpg");
     //size(img.width,img.height,P2D);
     println("No file was selected...");
-  } 
+  }
 
   else {
 
@@ -158,7 +158,7 @@ void saveImage() {
     if (savePath == null) {
       // If a file was not selected
       println("No output file was selected...");
-    } 
+    }
     else {
       // If a file was selected, print path to folder
       println(savePath);
@@ -171,7 +171,7 @@ void saveImage() {
 
 //// WINDOZ SAVE BUG
 //String DEST_FILE = "numbers.dat"; // Global
-//  
+//
 //// Then...
 //java.io.File dataFile = sketchFile(DEST_FILE);
 //if (dataFile.exists())

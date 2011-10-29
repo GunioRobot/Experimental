@@ -35,10 +35,10 @@ void setup() {
   /*
   * In this example a Clock is used to trigger events. We do this
    * by adding a listener to the Clock (which is of type Bead).
-   * 
+   *
    * The Bead is made on-the-fly. All we have to do is to
    * give the Bead a callback method to make notes.
-   * 
+   *
    * This example is more sophisticated than the previous
    * ones. It uses nested code.
    */
@@ -50,9 +50,9 @@ void setup() {
     public void messageReceived(Bead message) {
       Clock c = (Clock)message;
       if(c.isBeat()) {
-        
+
         checkLetters();
-        
+
         //          WavePlayer wp = new WavePlayer(ac, (float)Math.random() * 3000 + 100, Buffer.SINE);
         WavePlayer theWavePlayer = new WavePlayer(ac, frequency, Buffer.SQUARE);
         Gain theGain = new Gain(ac, 1, new Envelope(ac, 0.5));
@@ -72,7 +72,7 @@ void setup() {
  * The code draws the current buffer of audio across the
  * width of the window. To find out what a buffer of audio
  * is, read on.
- * 
+ *
  * Start with some spunky colors.
  */
 color fore = color(0, 200, 100);

@@ -3,85 +3,85 @@ void checkLetters() {
   if (count < lineLength) {
 
     switch (allChars[count]) {
-    case 'A': 
+    case 'A':
       frequency=10;
       break;
-    case 'B': 
+    case 'B':
       frequency=20;
       break;
-    case 'C': 
+    case 'C':
       frequency=30;
       break;
-    case 'D': 
+    case 'D':
       frequency=40;
       break;
-    case 'E': 
+    case 'E':
       frequency=50;
       break;
-    case 'F': 
+    case 'F':
       frequency=60;
       break;
-    case 'G': 
+    case 'G':
       frequency=70;
       break;
-    case 'H': 
+    case 'H':
       frequency=80;
       break;
-    case 'I': 
+    case 'I':
       frequency=90;
       break;
-    case 'J': 
+    case 'J':
       frequency=100;
       break;
-    case 'K': 
+    case 'K':
       frequency=110;
       break;
-    case 'L': 
+    case 'L':
       frequency=120;
       break;
-    case 'M': 
+    case 'M':
       frequency=130;
       break;
-    case 'N': 
+    case 'N':
       frequency=140;
       break;
-    case 'O': 
+    case 'O':
       frequency=150;
       break;
-    case 'P': 
+    case 'P':
       frequency=160;
       break;
-    case 'Q': 
+    case 'Q':
       frequency=170;
       break;
-    case 'R': 
+    case 'R':
       frequency=180;
       break;
-    case 'S': 
+    case 'S':
       frequency=190;
       break;
-    case 'T': 
+    case 'T':
       frequency=200;
       break;
-    case 'U': 
+    case 'U':
       frequency=210;
       break;
-    case 'V': 
+    case 'V':
       frequency=220;
       break;
-    case 'W': 
+    case 'W':
       frequency=230;
       break;
-    case 'X': 
+    case 'X':
       frequency=240;
       break;
-    case 'Y': 
+    case 'Y':
       frequency=250;
       break;
-    case 'Z': 
+    case 'Z':
       frequency=260;
       break;
-    case ' ': 
+    case ' ':
       frequency=0;
       break;
     }

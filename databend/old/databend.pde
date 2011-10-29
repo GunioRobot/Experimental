@@ -49,7 +49,7 @@ void keyPressed() {
     int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
     data[loc]=(byte)random(255);
 
-    saveBytes("picture01.jpg",data); 
+    saveBytes("picture01.jpg",data);
     img = loadImage("picture01.jpg");
     image(img, 0, 0);
   }
@@ -63,7 +63,7 @@ void keyPressed() {
       int loc=(int)random(128,data.length);//guess at header being 128 bytes at most..
       data[loc]=(byte)random(255);
 
-      saveBytes("picture01.jpg",data); 
+      saveBytes("picture01.jpg",data);
       img = loadImage("picture01.jpg");
       image(img, 0, 0);
     }

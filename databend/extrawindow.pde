@@ -1,4 +1,4 @@
-// Extra window code by Andreas Schlegel. 
+// Extra window code by Andreas Schlegel.
 // Found here : http://www.sojamo.de/files/code/ExtraWindowExample.txt
 // processing forum thread : http://processing.org/discourse/yabb2/YaBB.pl?num=1272033841
 
@@ -59,7 +59,7 @@ class ExtraWindow extends PApplet implements WindowListener, ComponentListener {
   protected int y = 100;
   protected String myName;
   protected  String myTitle;
-  protected  boolean isCoordinates = false; 
+  protected  boolean isCoordinates = false;
   protected boolean isLoop = true;
   public final static int NORMAL = 0;
   public final static int ECONOMIC = 1;
@@ -114,7 +114,7 @@ class ExtraWindow extends PApplet implements WindowListener, ComponentListener {
   public void setup() {
     if (myRenderer.length() == 0) {
       size(width, height);
-    } 
+    }
     else {
       size(width, height, myRenderer);
     }
@@ -138,7 +138,7 @@ class ExtraWindow extends PApplet implements WindowListener, ComponentListener {
   public void setVisible(boolean theValue) {
     if (theValue == true) {
       frame.show();
-    } 
+    }
     else {
       frame.hide();
     }
@@ -161,11 +161,11 @@ class ExtraWindow extends PApplet implements WindowListener, ComponentListener {
       m += " x:" + x + " y:" + y + "   " + width + "x" + height;
     }
     frame.setTitle(m);
-  } 
+  }
 
   public String title() {
     return myTitle;
-  } 
+  }
 
   public void showCoordinates() {
     isCoordinates = true;

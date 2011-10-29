@@ -33,7 +33,7 @@ public void draw() {
   }
   saveBytes("picturee.jpg",data);
   a = loadImage("picturee.jpg");
-  image(a, 0, 0); 
+  image(a, 0, 0);
 }
 
   static public void main(String args[]) {

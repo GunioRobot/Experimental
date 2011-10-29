@@ -30,7 +30,7 @@ void controlP5ListBox() {
 
   // ajouter les elements
   //println(filenames + " : cul");
-  
+
   for(int i=0;i<filenames.length;i++) {
     l.addItem(filenames[i],i);
   }
